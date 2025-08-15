@@ -16,5 +16,15 @@
                         <groupId>com.xtremand</groupId>
                         <artifactId>xtremand-config</artifactId>
                 </dependency>
+                <dependency>
+                        <groupId>com.xtremand</groupId>
+                        <artifactId>xtremand-domain</artifactId>
+                        <version>0.0.1-SNAPSHOT</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.xtremand</groupId>
+                    <artifactId>xtremand-email</artifactId>
+                    <version>0.0.1-SNAPSHOT</version>
+                </dependency>
         </dependencies>
 </project>
