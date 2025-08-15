@@ -56,4 +56,10 @@ public class EmailAnalytics {
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "campaign_id", nullable = false)
     private Campaign campaign;
+
+    @Column(name = "device")
+    private String device;
+
+    @Column(name = "country")
+    private String country;
 }

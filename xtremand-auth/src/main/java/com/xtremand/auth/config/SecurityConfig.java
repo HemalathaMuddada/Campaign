@@ -22,7 +22,7 @@ public class SecurityConfig {
 		http.csrf(csrf -> csrf.disable())
 				.authorizeHttpRequests(auth -> auth
 						.requestMatchers("/auth/login", "/auth/signup", "/contacts/**", "/ai/**", "/emails/**",
-								"/sms/**", "/whatsapp/**","/campaigns/**", "/swagger-ui/**", "/swagger-ui.html","/**")
+								"/sms/**", "/whatsapp/**","/campaigns/**", "/analytics/campaigns", "/swagger-ui/**", "/swagger-ui.html","/**")
 						.permitAll().anyRequest().authenticated())
 				.addFilterBefore(requestIdFilter, UsernamePasswordAuthenticationFilter.class);
 		return http.build();
