@@ -28,7 +28,7 @@ public interface EmailAnalyticsRepository extends JpaRepository<EmailAnalytics, 
 
     long countByClickedAtIsNotNull();
 
-    @org.springframework.data.jpa.repository.Query("SELECT new com.xtremand.domain.dto.CampaignAnalyticsDto.MonthlyPerformance(MONTH(e.sentAt), " +
+    @org.springframework.data.jpa.repository.Query("SELECT new com.xtremand.domain.dto.CampaignAnalyticsDto.MonthlyPerformance(EXTRACT(MONTH FROM e.sentAt), " +
             "SUM(CASE WHEN e.sentAt IS NOT NULL THEN 1 ELSE 0 END), " +
             "SUM(CASE WHEN e.sentAt IS NOT NULL AND e.bouncedAt IS NULL THEN 1 ELSE 0 END), " +
             "SUM(CASE WHEN e.openedAt IS NOT NULL THEN 1 ELSE 0 END), " +
@@ -36,7 +36,7 @@ public interface EmailAnalyticsRepository extends JpaRepository<EmailAnalytics, 
             "SUM(CASE WHEN e.repliedAt IS NOT NULL THEN 1 ELSE 0 END), " +
             "SUM(CASE WHEN e.bouncedAt IS NOT NULL THEN 1 ELSE 0 END)) " +
             "FROM EmailAnalytics e " +
-            "GROUP BY MONTH(e.sentAt)")
+            "GROUP BY EXTRACT(MONTH FROM e.sentAt)")
     java.util.List<com.xtremand.domain.dto.CampaignAnalyticsDto.MonthlyPerformance> findMonthlyPerformance();
 
     @org.springframework.data.jpa.repository.Query("SELECT new com.xtremand.domain.dto.CampaignAnalyticsDto.HourlyData(HOUR(e.openedAt), " +
